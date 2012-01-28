@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves />
+  <AxisAlignedCubeSaves />
+  <PolygonSaves>
+    <PolygonSave>
+      <X>-1.08068478</X>
+      <Y>-1.26471508</Y>
+      <Z>0</Z>
+      <RotationZ>4.24663639</RotationZ>
+      <Points>
+        <Point>
+          <X>-7.8111531636674192</X>
+          <Y>10.494092806856958</Y>
+        </Point>
+        <Point>
+          <X>1.9861134961947873</X>
+          <Y>19.811544411265029</Y>
+        </Point>
+        <Point>
+          <X>13.268532124795771</X>
+          <Y>-9.0467015426576065</Y>
+        </Point>
+        <Point>
+          <X>1.0361818659155055</X>
+          <Y>-12.184383243674258</Y>
+        </Point>
+        <Point>
+          <X>-8.1093470807338672</X>
+          <Y>-11.779925897091793</Y>
+        </Point>
+        <Point>
+          <X>-8.3389191574979549</X>
+          <Y>-0.3962545335483354</Y>
+        </Point>
+        <Point>
+          <X>-7.8111531636674192</X>
+          <Y>10.494092806856958</Y>
+        </Point>
+      </Points>
+      <Name>Trash</Name>
+      <Alpha>1</Alpha>
+      <Red>0.635294139</Red>
+      <Green>0.305882365</Green>
+      <Blue>0</Blue>
+    </PolygonSave>
+  </PolygonSaves>
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>
