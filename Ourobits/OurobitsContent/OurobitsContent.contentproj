@@ -60,6 +60,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>cannon_base_ggj</Name>
     </None>
+    <None Include="Cursor\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cursor</Name>
+    </None>
+    <None Include="Cursor\CursorFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CursorFile</Name>
+    </None>
     <None Include="Entities\CannonBase\CannonBaseFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CannonBaseFile</Name>
@@ -83,6 +91,30 @@
     <None Include="Entities\Trash\TrashFile.shcx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TrashFile</Name>
+    </None>
+    <None Include="RealBody\MoonFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MoonFile</Name>
+    </None>
+    <None Include="RealBody\moon_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moon_2</Name>
+    </None>
+    <None Include="RealBody\TrashFile1.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TrashFile1</Name>
+    </None>
+    <None Include="RealBody\TrashFile2.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TrashFile2</Name>
+    </None>
+    <None Include="RealBody\trash_1_ggj.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>trash_1_ggj</Name>
+    </None>
+    <None Include="RealBody\trash_2_ggj.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>trash_2_ggj</Name>
     </None>
     <None Include="Screens\GameScreen\BackgroundFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

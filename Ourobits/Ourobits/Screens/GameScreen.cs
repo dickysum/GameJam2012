@@ -34,18 +34,25 @@ namespace Ourobits.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+
+
             if (InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton))
             {
+
+
                 // Left mouse button pushed - down this frame, not down last frame
             }
+
 
             //Create new trash on release click
             if (InputManager.Mouse.ButtonReleased(Mouse.MouseButtons.LeftButton))
             {
+
                 // Left mouse button relase - down this frame, not down last frame
                 var num = TrashList.Count + 1;
                 var newTrash = new Ourobits.Entities.Trash(ContentManagerName, false);
                 newTrash.Name = "Trash" + num;
+
 
                 newTrash.X = 100;
                 newTrash.Y = -100;
@@ -54,8 +61,11 @@ namespace Ourobits.Screens
                 //Add to the game screen
                 newTrash.AddToManagers(this.Layer);
 
-                newTrash.Velocity = new Vector3(10,10,0);
-              
+                Vector3 cannonPointinVector = CannonBarrelInstance.RotationMatrix.Up;
+
+                newTrash.X = CannonBarrelInstance.
+                newTrash.Velocity = cannonPointinVector;
+                //newTrash.AttachTo(MoonInstance, true);
             }
 
 

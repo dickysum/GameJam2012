@@ -2,7 +2,7 @@
 <SpriteEditorScene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sprite>
     <X>0</X>
-    <Y>-210</Y>
+    <Y>0</Y>
     <Z>0</Z>
     <XVelocity>0</XVelocity>
     <YVelocity>0</YVelocity>
@@ -14,8 +14,8 @@
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>48.6136055</ScaleX>
-    <ScaleY>28.3319836</ScaleY>
+    <ScaleX>20.521986</ScaleX>
+    <ScaleY>24.9046478</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>
@@ -34,8 +34,8 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>cannon_base_ggj1</Name>
-    <Texture>cannon_base_ggj.png</Texture>
+    <Name>cursor1</Name>
+    <Texture>cursor.png</Texture>
     <Animate>false</Animate>
     <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>

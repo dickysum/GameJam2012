@@ -30,6 +30,21 @@
       <NamedObjects>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RotationZVelocity</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RelativeRotationZVelocity</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\Moon</SourceClassType>
@@ -77,34 +92,48 @@
           <VariablesToReset />
           <IgnoresPausing>false</IgnoresPausing>
           <CallActivity>true</CallActivity>
-          <ContainedObjects>
-            <NamedObjectSave>
-              <Properties />
-              <ContainerType>Screen</ContainerType>
-              <SourceType>Entity</SourceType>
-              <SourceClassType>Entities\Trash</SourceClassType>
-              <InstanceName>TrashDummy</InstanceName>
-              <HasPublicProperty>false</HasPublicProperty>
-              <SetByDerived>false</SetByDerived>
-              <ExposedInDerived>false</ExposedInDerived>
-              <SetByContainer>false</SetByContainer>
-              <AttachToContainer>true</AttachToContainer>
-              <AttachToCamera>false</AttachToCamera>
-              <AddToManagers>true</AddToManagers>
-              <IncludeInIVisible>true</IncludeInIVisible>
-              <IncludeInIClickable>true</IncludeInIClickable>
-              <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-              <DefinedByBase>false</DefinedByBase>
-              <InstantiatedByBase>false</InstantiatedByBase>
-              <IsDisabled>false</IsDisabled>
-              <VariablesToReset />
-              <IgnoresPausing>false</IgnoresPausing>
-              <CallActivity>true</CallActivity>
-              <ContainedObjects />
-              <Events />
-              <Is2D>false</Is2D>
-            </NamedObjectSave>
-          </ContainedObjects>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BarrelRotationZ</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BarrelRelativeZVelocity</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <ContainerType>Screen</ContainerType>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\CannonBarrel</SourceClassType>
+          <InstanceName>CannonBarrelInstance</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
@@ -112,8 +141,61 @@
           <Properties />
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
-          <SourceClassType>Entities\CannonBarrel</SourceClassType>
-          <InstanceName>CannonBarrelInstance</InstanceName>
+          <SourceClassType>Entities\CannonBase</SourceClassType>
+          <InstanceName>CannonBaseInstance</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\Trash2</SourceClassGenericType>
+          <InstanceName>TrashList2</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\UserArrow</SourceClassType>
+          <InstanceName>UserArrowInstance</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
@@ -145,7 +227,24 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-180</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -159,34 +258,7 @@
           <SourceFile>body/CannonBarrelFile.scnx</SourceFile>
           <SourceName>cannon_barrell_ggj1 (Sprite)</SourceName>
           <InstanceName>Barrel</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
-          <SetByDerived>false</SetByDerived>
-          <ExposedInDerived>false</ExposedInDerived>
-          <SetByContainer>false</SetByContainer>
-          <AttachToContainer>true</AttachToContainer>
-          <AttachToCamera>false</AttachToCamera>
-          <AddToManagers>true</AddToManagers>
-          <IncludeInIVisible>true</IncludeInIVisible>
-          <IncludeInIClickable>true</IncludeInIClickable>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <DefinedByBase>false</DefinedByBase>
-          <InstantiatedByBase>false</InstantiatedByBase>
-          <IsDisabled>false</IsDisabled>
-          <VariablesToReset />
-          <IgnoresPausing>false</IgnoresPausing>
-          <CallActivity>true</CallActivity>
-          <ContainedObjects />
-          <Events />
-          <Is2D>false</Is2D>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <Properties />
-          <ContainerType>Entity</ContainerType>
-          <SourceType>File</SourceType>
-          <SourceFile>body/CannonBarrelFile.scnx</SourceFile>
-          <SourceName>cannon_base_ggj1 (Sprite)</SourceName>
-          <InstanceName>Base</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -298,7 +370,40 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">60</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RotationZVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -309,10 +414,37 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
-          <SourceFile>Entities/Moon/MoonShapeCollectionFile.shcx</SourceFile>
-          <SourceName>Entire File (ShapeCollection)</SourceName>
-          <InstanceName>Body</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
+          <SourceFile>RealBody/MoonFile.scnx</SourceFile>
+          <SourceName>Entire File (Scene)</SourceName>
+          <InstanceName>RealBody</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>RealBody/MoonFile.scnx</SourceFile>
+          <SourceName>moon_21 (Sprite)</SourceName>
+          <InstanceName>MoonSprite</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -338,6 +470,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/Moon/MoonShapeCollectionFile.shcx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>OurobitsContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>RealBody/MoonFile.scnx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
@@ -446,12 +594,181 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>RealBody/TrashFile1.scnx</SourceFile>
+          <SourceName>trash_1_ggj1 (Sprite)</SourceName>
+          <InstanceName>RealBody</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/Trash/TrashFile.shcx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>OurobitsContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>RealBody/TrashFile1.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>OurobitsContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+      <Events />
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables />
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\Trash2</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>RealBody/TrashFile2.scnx</SourceFile>
+          <SourceName>trash_2_ggj1 (Sprite)</SourceName>
+          <InstanceName>RealBody</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>RealBody/TrashFile2.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>OurobitsContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+      <Events />
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables />
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\UserArrow</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>Cursor/CursorFile.scnx</SourceFile>
+          <SourceName>cursor1 (Sprite)</SourceName>
+          <InstanceName>Cursor</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Cursor/CursorFile.scnx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>

@@ -44,8 +44,10 @@ namespace Ourobits.Screens
 		
 		private Ourobits.Entities.Moon MoonInstance;
 		private PositionedObjectList<Trash> TrashList;
-		private Ourobits.Entities.Trash TrashDummy;
 		private Ourobits.Entities.CannonBarrel CannonBarrelInstance;
+		private Ourobits.Entities.CannonBase CannonBaseInstance;
+		private PositionedObjectList<Trash2> TrashList2;
+		private Ourobits.Entities.UserArrow UserArrowInstance;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -60,11 +62,13 @@ namespace Ourobits.Screens
 			MoonInstance = new Ourobits.Entities.Moon(ContentManagerName, false);
 			MoonInstance.Name = "MoonInstance";
 			TrashList = new PositionedObjectList<Trash>();
-			TrashDummy = new Ourobits.Entities.Trash(ContentManagerName, false);
-			TrashDummy.Name = "TrashDummy";
 			CannonBarrelInstance = new Ourobits.Entities.CannonBarrel(ContentManagerName, false);
 			CannonBarrelInstance.Name = "CannonBarrelInstance";
-			TrashList.Add(TrashDummy);
+			CannonBaseInstance = new Ourobits.Entities.CannonBase(ContentManagerName, false);
+			CannonBaseInstance.Name = "CannonBaseInstance";
+			TrashList2 = new PositionedObjectList<Trash2>();
+			UserArrowInstance = new Ourobits.Entities.UserArrow(ContentManagerName, false);
+			UserArrowInstance.Name = "UserArrowInstance";
 			
 			
 			PostInitialize();
@@ -100,6 +104,16 @@ namespace Ourobits.Screens
 					}
 				}
 				CannonBarrelInstance.Activity();
+				CannonBaseInstance.Activity();
+				for (int i = TrashList2.Count - 1; i > -1; i--)
+				{
+					if (i < TrashList2.Count)
+					{
+						// We do the extra if-check because activity could destroy any number of entities
+						TrashList2[i].Activity();
+					}
+				}
+				UserArrowInstance.Activity();
 			}
 			else
 			{
@@ -132,6 +146,18 @@ namespace Ourobits.Screens
 			{
 				CannonBarrelInstance.Destroy();
 			}
+			if (CannonBaseInstance != null)
+			{
+				CannonBaseInstance.Destroy();
+			}
+			for (int i = TrashList2.Count - 1; i > -1; i--)
+			{
+				TrashList2[i].Destroy();
+			}
+			if (UserArrowInstance != null)
+			{
+				UserArrowInstance.Destroy();
+			}
 			BackgroundFile.RemoveFromManagers(ContentManagerName != "Global");
 			
 
@@ -149,8 +175,9 @@ public virtual void AddToManagersBottomUp ()
 {
 	BackgroundFile.AddToManagers(mLayer);
 	MoonInstance.AddToManagers(mLayer);
-	TrashDummy.AddToManagers(mLayer);
 	CannonBarrelInstance.AddToManagers(mLayer);
+	CannonBaseInstance.AddToManagers(mLayer);
+	UserArrowInstance.AddToManagers(mLayer);
 }
 public virtual void ConvertToManuallyUpdated ()
 {
@@ -161,6 +188,12 @@ public virtual void ConvertToManuallyUpdated ()
 		TrashList[i].ConvertToManuallyUpdated();
 	}
 	CannonBarrelInstance.ConvertToManuallyUpdated();
+	CannonBaseInstance.ConvertToManuallyUpdated();
+	for (int i = 0; i < TrashList2.Count; i++)
+	{
+		TrashList2[i].ConvertToManuallyUpdated();
+	}
+	UserArrowInstance.ConvertToManuallyUpdated();
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -176,6 +209,8 @@ public static void LoadStaticContent (string contentManagerName)
 	#endif
 	Ourobits.Entities.Moon.LoadStaticContent(contentManagerName);
 	Ourobits.Entities.CannonBarrel.LoadStaticContent(contentManagerName);
+	Ourobits.Entities.CannonBase.LoadStaticContent(contentManagerName);
+	Ourobits.Entities.UserArrow.LoadStaticContent(contentManagerName);
 	CustomLoadStaticContent(contentManagerName);
 }
 object GetMember (string memberName)

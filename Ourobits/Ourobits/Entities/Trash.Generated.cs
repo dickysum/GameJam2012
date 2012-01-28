@@ -57,6 +57,7 @@ static object mLockObject = new object();
 static bool mHasRegisteredUnload = false;
 static bool IsStaticContentLoaded = false;
 private static ShapeCollection TrashFile;
+private static Scene TrashFile1;
 
 private ShapeCollection mBody;
 public ShapeCollection Body
@@ -66,6 +67,7 @@ public ShapeCollection Body
 		return mBody;
 	}
 }
+private Sprite RealBody;
 protected Layer LayerProvidedByContainer = null;
 
         public Trash(string contentManagerName) :
@@ -88,6 +90,7 @@ protected Layer LayerProvidedByContainer = null;
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			mBody = TrashFile.Clone();
+			RealBody = TrashFile1.Sprites.FindByName("trash_1_ggj1").Clone();
 			
 			PostInitialize();
 			if (addToManagers)
@@ -124,6 +127,10 @@ protected Layer LayerProvidedByContainer = null;
 			{
 				Body.RemoveFromManagers(ContentManagerName != "Global");
 			}
+			if (RealBody != null)
+			{
+				SpriteManager.RemoveSprite(RealBody);
+			}
 			
 
 
@@ -153,6 +160,11 @@ public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 	RotationZ = 0;
 	mBody.AddToManagers(layerToAddTo);
 	mBody.AttachAllDetachedTo(this, true);
+	SpriteManager.AddToLayer(RealBody, layerToAddTo);
+	if (RealBody.Parent == null)
+	{
+		RealBody.AttachTo(this, true);
+	}
 	X = oldX;
 	Y = oldY;
 	Z = oldZ;
@@ -164,6 +176,7 @@ public virtual void ConvertToManuallyUpdated ()
 {
 	this.ForceUpdateDependenciesDeep();
 	SpriteManager.ConvertToManuallyUpdated(this);
+	SpriteManager.ConvertToManuallyUpdated(RealBody);
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -195,6 +208,11 @@ public static void LoadStaticContent (string contentManagerName)
 			registerUnload = true;
 		}
 		TrashFile = FlatRedBallServices.Load<ShapeCollection>(@"content/entities/trash/trashfile.shcx", ContentManagerName);
+		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/realbody/trashfile1.scnx", ContentManagerName))
+		{
+			registerUnload = true;
+		}
+		TrashFile1 = FlatRedBallServices.Load<Scene>(@"content/realbody/trashfile1.scnx", ContentManagerName);
 		if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 		{
 			lock (mLockObject)
@@ -218,6 +236,11 @@ public static void UnloadStaticContent ()
 		TrashFile.RemoveFromManagers(ContentManagerName != "Global");
 		TrashFile= null;
 	}
+	if (TrashFile1 != null)
+	{
+		TrashFile1.RemoveFromManagers(ContentManagerName != "Global");
+		TrashFile1= null;
+	}
 }
 public static object GetStaticMember (string memberName)
 {
@@ -225,6 +248,8 @@ public static object GetStaticMember (string memberName)
 	{
 		case  "TrashFile":
 			return TrashFile;
+		case  "TrashFile1":
+			return TrashFile1;
 	}
 	return null;
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FlatRedBall.Gui;
+using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -35,6 +37,7 @@ namespace Ourobits
         {
             Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
+			GlobalContent.Initialize();
 
             //Ensure our game camera look at the game in 2D
             SpriteManager.Camera.Orthogonal = true;
@@ -50,8 +53,19 @@ namespace Ourobits
                 FlatRedBall.Input.InputManager.Xbox360GamePads[0].CreateDefaultButtonMap();
             }
 
-            //Set moon gravity
-            
+            //Setup the cursor
+            //FlatRedBallServices.Game.IsMouseVisible = true;
+
+            //GuiManager.DrawCursorEvenIfThereIsNoUI = true;
+
+            //Texture2D texture = FlatRedBallServices.Load<Texture2D>("redball.bmp");
+
+            //float xOffsetInUiUnits = 15;
+            //float yOffsetInUiUnits = 0;
+            //GuiManager.Cursor.SetCursor(texture, xOffsetInUiUnits, yOffsetInUiUnits);
+
+
+
 
             base.Initialize();
         }

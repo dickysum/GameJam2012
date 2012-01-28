@@ -39,7 +39,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace Ourobits.Entities
 {
-	public partial class CannonBarrel : PositionedObject, IDestroyable
+	public partial class Trash2 : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -55,25 +55,18 @@ static bool HasBeenLoadedWithGlobalContentManager = false;
 static object mLockObject = new object();
 static bool mHasRegisteredUnload = false;
 static bool IsStaticContentLoaded = false;
-private static Scene CannonBarrelFile;
+private static Scene TrashFile2;
 
-private Sprite mBarrel;
-public Sprite Barrel
-{
-	get
-	{
-		return mBarrel;
-	}
-}
+private Sprite RealBody;
 protected Layer LayerProvidedByContainer = null;
 
-        public CannonBarrel(string contentManagerName) :
+        public Trash2(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public CannonBarrel(string contentManagerName, bool addToManagers) :
+        public Trash2(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -86,7 +79,7 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mBarrel = CannonBarrelFile.Sprites.FindByName("cannon_barrell_ggj1").Clone();
+			RealBody = TrashFile2.Sprites.FindByName("trash_2_ggj1").Clone();
 			
 			PostInitialize();
 			if (addToManagers)
@@ -119,9 +112,9 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			if (Barrel != null)
+			if (RealBody != null)
 			{
-				SpriteManager.RemoveSprite(Barrel);
+				SpriteManager.RemoveSprite(RealBody);
 			}
 			
 
@@ -132,7 +125,6 @@ protected Layer LayerProvidedByContainer = null;
 		// Generated Methods
 public virtual void PostInitialize ()
 {
-	Y = -180f;
 }
 public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 {
@@ -151,10 +143,10 @@ public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 	RotationX = 0;
 	RotationY = 0;
 	RotationZ = 0;
-	SpriteManager.AddToLayer(mBarrel, layerToAddTo);
-	if (mBarrel.Parent == null)
+	SpriteManager.AddToLayer(RealBody, layerToAddTo);
+	if (RealBody.Parent == null)
 	{
-		mBarrel.AttachTo(this, true);
+		RealBody.AttachTo(this, true);
 	}
 	X = oldX;
 	Y = oldY;
@@ -167,7 +159,7 @@ public virtual void ConvertToManuallyUpdated ()
 {
 	this.ForceUpdateDependenciesDeep();
 	SpriteManager.ConvertToManuallyUpdated(this);
-	SpriteManager.ConvertToManuallyUpdated(Barrel);
+	SpriteManager.ConvertToManuallyUpdated(RealBody);
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -189,23 +181,23 @@ public static void LoadStaticContent (string contentManagerName)
 		{
 			if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
-				FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CannonBarrelStaticUnload", UnloadStaticContent);
+				FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("Trash2StaticUnload", UnloadStaticContent);
 				mHasRegisteredUnload = true;
 			}
 		}
 		bool registerUnload = false;
-		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/body/cannonbarrelfile.scnx", ContentManagerName))
+		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/realbody/trashfile2.scnx", ContentManagerName))
 		{
 			registerUnload = true;
 		}
-		CannonBarrelFile = FlatRedBallServices.Load<Scene>(@"content/body/cannonbarrelfile.scnx", ContentManagerName);
+		TrashFile2 = FlatRedBallServices.Load<Scene>(@"content/realbody/trashfile2.scnx", ContentManagerName);
 		if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 		{
 			lock (mLockObject)
 			{
 				if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 				{
-					FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CannonBarrelStaticUnload", UnloadStaticContent);
+					FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("Trash2StaticUnload", UnloadStaticContent);
 					mHasRegisteredUnload = true;
 				}
 			}
@@ -217,18 +209,18 @@ public static void UnloadStaticContent ()
 {
 	IsStaticContentLoaded = false;
 	mHasRegisteredUnload = false;
-	if (CannonBarrelFile != null)
+	if (TrashFile2 != null)
 	{
-		CannonBarrelFile.RemoveFromManagers(ContentManagerName != "Global");
-		CannonBarrelFile= null;
+		TrashFile2.RemoveFromManagers(ContentManagerName != "Global");
+		TrashFile2= null;
 	}
 }
 public static object GetStaticMember (string memberName)
 {
 	switch(memberName)
 	{
-		case  "CannonBarrelFile":
-			return CannonBarrelFile;
+		case  "TrashFile2":
+			return TrashFile2;
 	}
 	return null;
 }
@@ -244,7 +236,7 @@ object GetMember (string memberName)
 	
 	
 	// Extra classes
-	public static class CannonBarrelExtensionMethods
+	public static class Trash2ExtensionMethods
 	{
 	}
 	

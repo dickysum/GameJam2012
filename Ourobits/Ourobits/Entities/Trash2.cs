@@ -23,11 +23,12 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace Ourobits.Entities
 {
-	public partial class Moon
+	public partial class Trash2
 	{
 		private void CustomInitialize()
 		{
-		    MoonSprite.ParentRotationChangesRotation = false;
+
+
 		}
 
 		private void CustomActivity()

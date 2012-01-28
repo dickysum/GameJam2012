@@ -57,15 +57,10 @@ static object mLockObject = new object();
 static bool mHasRegisteredUnload = false;
 static bool IsStaticContentLoaded = false;
 private static ShapeCollection MoonShapeCollectionFile;
+private static Scene MoonFile;
 
-private ShapeCollection mBody;
-public ShapeCollection Body
-{
-	get
-	{
-		return mBody;
-	}
-}
+private Scene RealBody;
+private Sprite MoonSprite;
 protected Layer LayerProvidedByContainer = null;
 
         public Moon(string contentManagerName) :
@@ -87,7 +82,12 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mBody = MoonShapeCollectionFile.Clone();
+			RealBody = MoonFile.Clone();
+			for (int i = 0; i < RealBody.Texts.Count; i++)
+			{
+				RealBody.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
+			}
+			MoonSprite = RealBody.Sprites.FindByName("moon_21");
 			
 			PostInitialize();
 			if (addToManagers)
@@ -112,6 +112,7 @@ protected Layer LayerProvidedByContainer = null;
 			// Generated Activity
 			
 			CustomActivity();
+			RealBody.ManageAll();
 			
 			// After Custom Activity
 		}
@@ -120,9 +121,13 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			if (Body != null)
+			if (RealBody != null)
 			{
-				Body.RemoveFromManagers(ContentManagerName != "Global");
+				RealBody.RemoveFromManagers(ContentManagerName != "Global");
+			}
+			if (MoonSprite != null)
+			{
+				SpriteManager.RemoveSprite(MoonSprite);
 			}
 			
 
@@ -133,6 +138,8 @@ protected Layer LayerProvidedByContainer = null;
 		// Generated Methods
 public virtual void PostInitialize ()
 {
+	Y = 60f;
+	RotationZVelocity = 0.5f;
 }
 public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 {
@@ -151,8 +158,8 @@ public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 	RotationX = 0;
 	RotationY = 0;
 	RotationZ = 0;
-	mBody.AddToManagers(layerToAddTo);
-	mBody.AttachAllDetachedTo(this, true);
+	RealBody.AddToManagers(layerToAddTo);
+	RealBody.AttachAllDetachedTo(this, true);
 	X = oldX;
 	Y = oldY;
 	Z = oldZ;
@@ -164,6 +171,7 @@ public virtual void ConvertToManuallyUpdated ()
 {
 	this.ForceUpdateDependenciesDeep();
 	SpriteManager.ConvertToManuallyUpdated(this);
+	RealBody.ConvertToManuallyUpdated();
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -195,6 +203,11 @@ public static void LoadStaticContent (string contentManagerName)
 			registerUnload = true;
 		}
 		MoonShapeCollectionFile = FlatRedBallServices.Load<ShapeCollection>(@"content/entities/moon/moonshapecollectionfile.shcx", ContentManagerName);
+		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/realbody/moonfile.scnx", ContentManagerName))
+		{
+			registerUnload = true;
+		}
+		MoonFile = FlatRedBallServices.Load<Scene>(@"content/realbody/moonfile.scnx", ContentManagerName);
 		if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 		{
 			lock (mLockObject)
@@ -218,6 +231,11 @@ public static void UnloadStaticContent ()
 		MoonShapeCollectionFile.RemoveFromManagers(ContentManagerName != "Global");
 		MoonShapeCollectionFile= null;
 	}
+	if (MoonFile != null)
+	{
+		MoonFile.RemoveFromManagers(ContentManagerName != "Global");
+		MoonFile= null;
+	}
 }
 public static object GetStaticMember (string memberName)
 {
@@ -225,6 +243,8 @@ public static object GetStaticMember (string memberName)
 	{
 		case  "MoonShapeCollectionFile":
 			return MoonShapeCollectionFile;
+		case  "MoonFile":
+			return MoonFile;
 	}
 	return null;
 }

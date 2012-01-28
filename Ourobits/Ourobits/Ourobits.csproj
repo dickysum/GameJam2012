@@ -125,6 +125,14 @@
     <Compile Include="Entities\Trash.Generated.cs">
       <DependentUpon>Trash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Trash2.cs" />
+    <Compile Include="Entities\Trash2.Generated.cs">
+      <DependentUpon>Trash2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserArrow.cs" />
+    <Compile Include="Entities\UserArrow.Generated.cs">
+      <DependentUpon>UserArrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="Performance\IPoolable.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />

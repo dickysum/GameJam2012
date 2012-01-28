@@ -23,17 +23,18 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace Ourobits.Entities
 {
-	public partial class Moon
+	public partial class UserArrow
 	{
 		private void CustomInitialize()
 		{
-		    MoonSprite.ParentRotationChangesRotation = false;
+
+
 		}
 
 		private void CustomActivity()
 		{
-
-
+            X = GuiManager.Cursor.WorldXAt(0);
+            Y = GuiManager.Cursor.WorldYAt(0);
 		}
 
 		private void CustomDestroy()
