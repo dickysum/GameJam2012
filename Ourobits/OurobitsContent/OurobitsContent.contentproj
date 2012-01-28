@@ -88,10 +88,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MoonShapeCollectionFile</Name>
     </None>
-    <None Include="Entities\Trash\TrashFile.shcx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>TrashFile</Name>
-    </None>
     <None Include="RealBody\MoonFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MoonFile</Name>

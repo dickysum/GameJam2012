@@ -113,9 +113,17 @@
     <Compile Include="Entities\CannonBase.Generated.cs">
       <DependentUpon>CannonBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Conveyor.cs" />
+    <Compile Include="Entities\Conveyor.Generated.cs">
+      <DependentUpon>Conveyor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Moon.cs" />
     <Compile Include="Entities\Moon.Generated.cs">
       <DependentUpon>Moon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Orbit1.cs" />
+    <Compile Include="Entities\Orbit1.Generated.cs">
+      <DependentUpon>Orbit1.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\TestEntity.cs" />
     <Compile Include="Entities\TestEntity.Generated.cs">

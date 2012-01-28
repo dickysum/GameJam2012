@@ -40,7 +40,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace Ourobits.Entities
 {
-	public partial class Moon : PositionedObject, IDestroyable
+	public partial class Orbit1 : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -56,34 +56,46 @@ static bool HasBeenLoadedWithGlobalContentManager = false;
 static object mLockObject = new object();
 static bool mHasRegisteredUnload = false;
 static bool IsStaticContentLoaded = false;
-private static ShapeCollection MoonShapeCollectionFile;
-private static Scene MoonFile;
 
-private Scene mRealBody;
-public Scene RealBody
+private Circle mCircle;
+public Circle Circle
 {
 	get
 	{
-		return mRealBody;
+		return mCircle;
 	}
 }
-private Sprite mMoonSprite;
-public Sprite MoonSprite
+public float CircleRadius
 {
 	get
 	{
-		return mMoonSprite;
+		return Circle.Radius;
+	}
+	set
+	{
+		Circle.Radius = value;
+	}
+}
+public Color CircleColor
+{
+	get
+	{
+		return Circle.Color;
+	}
+	set
+	{
+		Circle.Color = value;
 	}
 }
 protected Layer LayerProvidedByContainer = null;
 
-        public Moon(string contentManagerName) :
+        public Orbit1(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public Moon(string contentManagerName, bool addToManagers) :
+        public Orbit1(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -96,12 +108,7 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mRealBody = MoonFile.Clone();
-			for (int i = 0; i < mRealBody.Texts.Count; i++)
-			{
-				mRealBody.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
-			}
-			mMoonSprite = mRealBody.Sprites.FindByName("moon_21");
+			mCircle = new Circle();
 			
 			PostInitialize();
 			if (addToManagers)
@@ -126,7 +133,6 @@ protected Layer LayerProvidedByContainer = null;
 			// Generated Activity
 			
 			CustomActivity();
-			RealBody.ManageAll();
 			
 			// After Custom Activity
 		}
@@ -135,13 +141,9 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			if (RealBody != null)
+			if (Circle != null)
 			{
-				RealBody.RemoveFromManagers(ContentManagerName != "Global");
-			}
-			if (MoonSprite != null)
-			{
-				SpriteManager.RemoveSprite(MoonSprite);
+				ShapeManager.Remove(Circle);
 			}
 			
 
@@ -152,7 +154,10 @@ protected Layer LayerProvidedByContainer = null;
 		// Generated Methods
 public virtual void PostInitialize ()
 {
+	X = 0f;
 	Y = 60f;
+	CircleRadius = 150f;
+	CircleColor = Color.Green;
 	RotationZVelocity = 0.5f;
 }
 public virtual void AddToManagersBottomUp (Layer layerToAddTo)
@@ -172,8 +177,11 @@ public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 	RotationX = 0;
 	RotationY = 0;
 	RotationZ = 0;
-	mRealBody.AddToManagers(layerToAddTo);
-	mRealBody.AttachAllDetachedTo(this, true);
+	ShapeManager.AddToLayer(mCircle, layerToAddTo);
+	if (mCircle.Parent == null)
+	{
+		mCircle.AttachTo(this, true);
+	}
 	X = oldX;
 	Y = oldY;
 	Z = oldZ;
@@ -185,7 +193,6 @@ public virtual void ConvertToManuallyUpdated ()
 {
 	this.ForceUpdateDependenciesDeep();
 	SpriteManager.ConvertToManuallyUpdated(this);
-	RealBody.ConvertToManuallyUpdated();
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -207,28 +214,18 @@ public static void LoadStaticContent (string contentManagerName)
 		{
 			if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
-				FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("MoonStaticUnload", UnloadStaticContent);
+				FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("Orbit1StaticUnload", UnloadStaticContent);
 				mHasRegisteredUnload = true;
 			}
 		}
 		bool registerUnload = false;
-		if (!FlatRedBallServices.IsLoaded<ShapeCollection>(@"content/entities/moon/moonshapecollectionfile.shcx", ContentManagerName))
-		{
-			registerUnload = true;
-		}
-		MoonShapeCollectionFile = FlatRedBallServices.Load<ShapeCollection>(@"content/entities/moon/moonshapecollectionfile.shcx", ContentManagerName);
-		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/realbody/moonfile.scnx", ContentManagerName))
-		{
-			registerUnload = true;
-		}
-		MoonFile = FlatRedBallServices.Load<Scene>(@"content/realbody/moonfile.scnx", ContentManagerName);
 		if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 		{
 			lock (mLockObject)
 			{
 				if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 				{
-					FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("MoonStaticUnload", UnloadStaticContent);
+					FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("Orbit1StaticUnload", UnloadStaticContent);
 					mHasRegisteredUnload = true;
 				}
 			}
@@ -240,33 +237,9 @@ public static void UnloadStaticContent ()
 {
 	IsStaticContentLoaded = false;
 	mHasRegisteredUnload = false;
-	if (MoonShapeCollectionFile != null)
-	{
-		MoonShapeCollectionFile.RemoveFromManagers(ContentManagerName != "Global");
-		MoonShapeCollectionFile= null;
-	}
-	if (MoonFile != null)
-	{
-		MoonFile.RemoveFromManagers(ContentManagerName != "Global");
-		MoonFile= null;
-	}
-}
-public static object GetStaticMember (string memberName)
-{
-	switch(memberName)
-	{
-		case  "MoonShapeCollectionFile":
-			return MoonShapeCollectionFile;
-		case  "MoonFile":
-			return MoonFile;
-	}
-	return null;
 }
 object GetMember (string memberName)
 {
-	switch(memberName)
-	{
-	}
 	return null;
 }
 
@@ -274,7 +247,7 @@ object GetMember (string memberName)
 	
 	
 	// Extra classes
-	public static class MoonExtensionMethods
+	public static class Orbit1ExtensionMethods
 	{
 	}
 	

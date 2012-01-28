@@ -56,18 +56,59 @@ static bool HasBeenLoadedWithGlobalContentManager = false;
 static object mLockObject = new object();
 static bool mHasRegisteredUnload = false;
 static bool IsStaticContentLoaded = false;
-private static ShapeCollection TrashFile;
 private static Scene TrashFile1;
 
-private ShapeCollection mBody;
-public ShapeCollection Body
+private Sprite mRealBody;
+public Sprite RealBody
 {
 	get
 	{
-		return mBody;
+		return mRealBody;
 	}
 }
-private Sprite RealBody;
+private Circle mCollisionCircle;
+public Circle CollisionCircle
+{
+	get
+	{
+		return mCollisionCircle;
+	}
+}
+public float RealBodyDrag
+{
+	get
+	{
+		return RealBody.Drag;
+	}
+	set
+	{
+		RealBody.Drag = value;
+	}
+}
+public bool Attached = false;
+public float CollisionCircleRadius
+{
+	get
+	{
+		return CollisionCircle.Radius;
+	}
+	set
+	{
+		CollisionCircle.Radius = value;
+	}
+}
+public Color CollisionCircleColor
+{
+	get
+	{
+		return CollisionCircle.Color;
+	}
+	set
+	{
+		CollisionCircle.Color = value;
+	}
+}
+public bool OnConveyor = false;
 protected Layer LayerProvidedByContainer = null;
 
         public Trash(string contentManagerName) :
@@ -89,8 +130,8 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mBody = TrashFile.Clone();
-			RealBody = TrashFile1.Sprites.FindByName("trash_1_ggj1").Clone();
+			mRealBody = TrashFile1.Sprites.FindByName("trash_1_ggj1").Clone();
+			mCollisionCircle = new Circle();
 			
 			PostInitialize();
 			if (addToManagers)
@@ -123,13 +164,13 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			if (Body != null)
-			{
-				Body.RemoveFromManagers(ContentManagerName != "Global");
-			}
 			if (RealBody != null)
 			{
 				SpriteManager.RemoveSprite(RealBody);
+			}
+			if (CollisionCircle != null)
+			{
+				ShapeManager.Remove(CollisionCircle);
 			}
 			
 
@@ -140,6 +181,11 @@ protected Layer LayerProvidedByContainer = null;
 		// Generated Methods
 public virtual void PostInitialize ()
 {
+	RealBodyDrag = 0.3f;
+	Attached = false;
+	CollisionCircleRadius = 10f;
+	CollisionCircleColor = Color.Transparent;
+	OnConveyor = false;
 }
 public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 {
@@ -158,12 +204,15 @@ public virtual void AddToManagersBottomUp (Layer layerToAddTo)
 	RotationX = 0;
 	RotationY = 0;
 	RotationZ = 0;
-	mBody.AddToManagers(layerToAddTo);
-	mBody.AttachAllDetachedTo(this, true);
-	SpriteManager.AddToLayer(RealBody, layerToAddTo);
-	if (RealBody.Parent == null)
+	SpriteManager.AddToLayer(mRealBody, layerToAddTo);
+	if (mRealBody.Parent == null)
 	{
-		RealBody.AttachTo(this, true);
+		mRealBody.AttachTo(this, true);
+	}
+	ShapeManager.AddToLayer(mCollisionCircle, layerToAddTo);
+	if (mCollisionCircle.Parent == null)
+	{
+		mCollisionCircle.AttachTo(this, true);
 	}
 	X = oldX;
 	Y = oldY;
@@ -203,11 +252,6 @@ public static void LoadStaticContent (string contentManagerName)
 			}
 		}
 		bool registerUnload = false;
-		if (!FlatRedBallServices.IsLoaded<ShapeCollection>(@"content/entities/trash/trashfile.shcx", ContentManagerName))
-		{
-			registerUnload = true;
-		}
-		TrashFile = FlatRedBallServices.Load<ShapeCollection>(@"content/entities/trash/trashfile.shcx", ContentManagerName);
 		if (!FlatRedBallServices.IsLoaded<Scene>(@"content/realbody/trashfile1.scnx", ContentManagerName))
 		{
 			registerUnload = true;
@@ -231,11 +275,6 @@ public static void UnloadStaticContent ()
 {
 	IsStaticContentLoaded = false;
 	mHasRegisteredUnload = false;
-	if (TrashFile != null)
-	{
-		TrashFile.RemoveFromManagers(ContentManagerName != "Global");
-		TrashFile= null;
-	}
 	if (TrashFile1 != null)
 	{
 		TrashFile1.RemoveFromManagers(ContentManagerName != "Global");
@@ -246,8 +285,6 @@ public static object GetStaticMember (string memberName)
 {
 	switch(memberName)
 	{
-		case  "TrashFile":
-			return TrashFile;
 		case  "TrashFile1":
 			return TrashFile1;
 	}

@@ -49,7 +49,7 @@ namespace Ourobits.Entities
                 float worldY = GuiManager.Cursor.WorldYAt(Barrel.Z);
                 // Now get the desired rotation for the Sprite
                 float desiredRotation = (float)Math.Atan2(
-                    worldY - Barrel.Y, worldX - Barrel.X);
+                    Math.Abs(worldY - Barrel.Y), worldX - Barrel.X);
 
                 var offset = (float)Math.PI/2F;
 

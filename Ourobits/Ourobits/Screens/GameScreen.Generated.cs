@@ -48,6 +48,8 @@ namespace Ourobits.Screens
 		private Ourobits.Entities.CannonBase CannonBaseInstance;
 		private PositionedObjectList<Trash2> TrashList2;
 		private Ourobits.Entities.UserArrow UserArrowInstance;
+		private Ourobits.Entities.Conveyor ConveyorInstance;
+		private Ourobits.Entities.Orbit1 Orbit1Instance;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -69,6 +71,10 @@ namespace Ourobits.Screens
 			TrashList2 = new PositionedObjectList<Trash2>();
 			UserArrowInstance = new Ourobits.Entities.UserArrow(ContentManagerName, false);
 			UserArrowInstance.Name = "UserArrowInstance";
+			ConveyorInstance = new Ourobits.Entities.Conveyor(ContentManagerName, false);
+			ConveyorInstance.Name = "ConveyorInstance";
+			Orbit1Instance = new Ourobits.Entities.Orbit1(ContentManagerName, false);
+			Orbit1Instance.Name = "Orbit1Instance";
 			
 			
 			PostInitialize();
@@ -114,6 +120,8 @@ namespace Ourobits.Screens
 					}
 				}
 				UserArrowInstance.Activity();
+				ConveyorInstance.Activity();
+				Orbit1Instance.Activity();
 			}
 			else
 			{
@@ -158,6 +166,14 @@ namespace Ourobits.Screens
 			{
 				UserArrowInstance.Destroy();
 			}
+			if (ConveyorInstance != null)
+			{
+				ConveyorInstance.Destroy();
+			}
+			if (Orbit1Instance != null)
+			{
+				Orbit1Instance.Destroy();
+			}
 			BackgroundFile.RemoveFromManagers(ContentManagerName != "Global");
 			
 
@@ -178,6 +194,8 @@ public virtual void AddToManagersBottomUp ()
 	CannonBarrelInstance.AddToManagers(mLayer);
 	CannonBaseInstance.AddToManagers(mLayer);
 	UserArrowInstance.AddToManagers(mLayer);
+	ConveyorInstance.AddToManagers(mLayer);
+	Orbit1Instance.AddToManagers(mLayer);
 }
 public virtual void ConvertToManuallyUpdated ()
 {
@@ -194,6 +212,8 @@ public virtual void ConvertToManuallyUpdated ()
 		TrashList2[i].ConvertToManuallyUpdated();
 	}
 	UserArrowInstance.ConvertToManuallyUpdated();
+	ConveyorInstance.ConvertToManuallyUpdated();
+	Orbit1Instance.ConvertToManuallyUpdated();
 }
 public static void LoadStaticContent (string contentManagerName)
 {
@@ -211,6 +231,8 @@ public static void LoadStaticContent (string contentManagerName)
 	Ourobits.Entities.CannonBarrel.LoadStaticContent(contentManagerName);
 	Ourobits.Entities.CannonBase.LoadStaticContent(contentManagerName);
 	Ourobits.Entities.UserArrow.LoadStaticContent(contentManagerName);
+	Ourobits.Entities.Conveyor.LoadStaticContent(contentManagerName);
+	Ourobits.Entities.Orbit1.LoadStaticContent(contentManagerName);
 	CustomLoadStaticContent(contentManagerName);
 }
 object GetMember (string memberName)

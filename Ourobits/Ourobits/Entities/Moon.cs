@@ -32,8 +32,7 @@ namespace Ourobits.Entities
 
 		private void CustomActivity()
 		{
-
-
+        
 		}
 
 		private void CustomDestroy()

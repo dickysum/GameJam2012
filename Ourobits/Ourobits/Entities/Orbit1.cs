@@ -9,7 +9,6 @@ using FlatRedBall.Graphics.Particle;
 
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math.Splines;
-using Microsoft.Xna.Framework;
 using BitmapFont = FlatRedBall.Graphics.BitmapFont;
 using Cursor = FlatRedBall.Gui.Cursor;
 using GuiManager = FlatRedBall.Gui.GuiManager;
@@ -24,18 +23,29 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace Ourobits.Entities
 {
-	public partial class Trash
+	public partial class Orbit1
 	{
+        //backup the original position so the orbit doesn't get knok off
+	    private float originalX;
+        private float origianlY;
+
 		private void CustomInitialize()
 		{
-
+		    originalX = this.X;
+            origianlY = this.Y;
 
 		}
 
 		private void CustomActivity()
 		{
-            
-
+            //Fix the orbrite location
+            if (this.Velocity.X != 0 || this.Velocity.Y !=0)
+            {
+                this.Velocity.X = 0;
+                this.Velocity.Y = 0;
+                this.X = originalX;
+                this.Y = origianlY;
+            }
 
 		}
 

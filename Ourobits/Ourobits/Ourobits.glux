@@ -216,6 +216,93 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RotationZVelocity</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <ContainerType>Screen</ContainerType>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\Conveyor</SourceClassType>
+          <InstanceName>ConveyorInstance</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>X</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>CircleRadius</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>CircleColor</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RotationZVelocity</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <ContainerType>Screen</ContainerType>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\Orbit1</SourceClassType>
+          <InstanceName>Orbit1Instance</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <Behaviors />
       <UseGlobalContent>false</UseGlobalContent>
@@ -378,6 +465,83 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
+          <Name>RotationZVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-0.5</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-530</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\Conveyor</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles />
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+      <Events />
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
           <Name>Y</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">60</DefaultValue>
@@ -417,7 +581,7 @@
           <SourceFile>RealBody/MoonFile.scnx</SourceFile>
           <SourceName>Entire File (Scene)</SourceName>
           <InstanceName>RealBody</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -444,7 +608,7 @@
           <SourceFile>RealBody/MoonFile.scnx</SourceFile>
           <SourceName>moon_21 (Sprite)</SourceName>
           <InstanceName>MoonSprite</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -509,6 +673,136 @@
       <Properties />
       <States />
       <StateCategoryList />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">60</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CircleRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>Circle</SourceObject>
+          <SourceObjectProperty>Radius</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>Color</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CircleColor</Name>
+          <Type>Color</Type>
+          <DefaultValue xsi:type="xsd:string">Green</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>Circle</SourceObject>
+          <SourceObjectProperty>Color</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RotationZVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\Orbit1</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>Circle</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles />
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+      <Events />
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
       <CustomVariables />
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
@@ -560,7 +854,94 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RealBodyDrag</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>RealBody</SourceObject>
+          <SourceObjectProperty>Drag</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Attached</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CollisionCircleRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>CollisionCircle</SourceObject>
+          <SourceObjectProperty>Radius</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>Color</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CollisionCircleColor</Name>
+          <Type>Color</Type>
+          <DefaultValue xsi:type="xsd:string">Transparent</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>CollisionCircle</SourceObject>
+          <SourceObjectProperty>Color</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>OnConveyor</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -571,9 +952,9 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
-          <SourceFile>Entities/Trash/TrashFile.shcx</SourceFile>
-          <SourceName>Entire File (ShapeCollection)</SourceName>
-          <InstanceName>Body</InstanceName>
+          <SourceFile>RealBody/TrashFile1.scnx</SourceFile>
+          <SourceName>trash_1_ggj1 (Sprite)</SourceName>
+          <InstanceName>RealBody</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
@@ -597,11 +978,10 @@
         <NamedObjectSave>
           <Properties />
           <ContainerType>Entity</ContainerType>
-          <SourceType>File</SourceType>
-          <SourceFile>RealBody/TrashFile1.scnx</SourceFile>
-          <SourceName>trash_1_ggj1 (Sprite)</SourceName>
-          <InstanceName>RealBody</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CollisionCircle</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -623,22 +1003,6 @@
         </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
-        <ReferencedFileSave>
-          <Properties />
-          <ContainerType>Entity</ContainerType>
-          <Name>Entities/Trash/TrashFile.shcx</Name>
-          <IsManuallyUpdated>false</IsManuallyUpdated>
-          <IsSharedStatic>true</IsSharedStatic>
-          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
-          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
-          <ContentProjectParent>OurobitsContent</ContentProjectParent>
-          <HasPublicProperty>false</HasPublicProperty>
-          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
-          <LoadedAtRuntime>true</LoadedAtRuntime>
-          <CreatesDictionary>false</CreatesDictionary>
-          <CsvDelimiter>Comma</CsvDelimiter>
-          <TreatAsCsv>false</TreatAsCsv>
-        </ReferencedFileSave>
         <ReferencedFileSave>
           <Properties />
           <ContainerType>Entity</ContainerType>
