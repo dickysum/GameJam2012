@@ -5,6 +5,9 @@ using System.Text;
 namespace Ourobits.Performance
 {
 
+/// <summary>
+/// Quick test
+/// </summary>
     public interface IPoolable
     {
         int Index
